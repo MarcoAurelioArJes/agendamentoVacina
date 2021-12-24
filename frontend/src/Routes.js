@@ -6,31 +6,6 @@ import TelaCadastro from './pages/TelaCadastro';
 import TelaLogar from './pages/TelaLogar';
 
 class Routes extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            informacoes: [
-                {
-                    nome: "",
-                    cpf: "",
-                    idade: "",
-                    sexo: ""
-                }
-            ],
-
-            infoAgendamento: [{
-                local: "",
-                data: "",
-                horario: ""
-            }]
-
-        }
-    }  
-
-    infoAgendamento(local, data, horario) {
-        
-    }
-    
     render() { 
         return (
             <BrowserRouter>
@@ -47,7 +22,7 @@ class Routes extends Component {
                         <AgendamentoRealizado />
                     </Route>
 
-                    <Route path="/paginaLogin">
+                    <Route path="/login">
                         <TelaLogar />
                     </Route>
                 </Switch>

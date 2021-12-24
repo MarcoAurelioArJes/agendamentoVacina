@@ -6,4 +6,10 @@ module.exports = app => {
 
         Cadastramento.criaCadastro(cadastro, res);
     });
+
+    app.post('/login', (req, res) => {
+        const email = req.body.email;
+        const senha = req.body.senha;
+        Cadastramento.login(email, senha, res);
+    });
 };

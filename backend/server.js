@@ -11,7 +11,7 @@ connection.connect(error => {
         Tables.init(connection);
 
         const app = expressCustom();
-        const PORT = 4000;
+        const PORT = 3200;
         app.listen(PORT, () => {
             console.log(`Servidor inicializado na porta ${PORT}`);
         });
