@@ -1,23 +1,21 @@
 const moment = require('moment');
 
 const connection = require('../DB/connection');
+const repo = require('../repo/agendamento');
 
 class Agendamento {
     
-    criaAgendamento(agendamento, res) {
+    criaAgendamento(id, valores) {
 
-        moment(agendamento.data, 'DD/MM/YYYY').format('YYYY/MM/DD HH:mm:ss');
+        moment(valores.data, 'DD/MM/YYYY').format('YYYY/MM/DD HH:mm:ss');
 
-        const query = `INSERT INTO AGENDAMENTO SET ?`;
-
-        connection.query(query, agendamento, error => {
-            if (error) {
-                res.status(400).json(error);
-            } else {
-                res.status(200).json(agendamento);
-            }
-        });
+        return repo.cria(id, valores);
     };
+
+    listaAgendamento(id, nome, sobrenome) {
+
+        return repo.listaAgendamento(id, nome, sobrenome)
+    }
 };
 
 module.exports = new Agendamento();

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+import {CadAtendimento} from '../../components/ConsumoAPI/index';
 
 
 class Agendamento extends Component {
@@ -12,7 +12,6 @@ class Agendamento extends Component {
     constructor(props) {
         super(props);
         this.state = {}
-        
         this.#local = "";
         this.#data = "";
         this.#hora = "";
@@ -24,22 +23,14 @@ class Agendamento extends Component {
         });
     }
 
-    handleSubmit = () => {
-
+    handleSubmit = (e) => {
+        e.preventDefault()
         const informacoes = {
             local: this.#local,
             data: this.#data,
             hora: this.#hora,
         };
-
-        axios.post(`http://192.168.0.102:3200/agendamento`, informacoes,
-            { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
-
-        console.log(informacoes);
+        CadAtendimento(informacoes);
     };
 
     _local(e) {

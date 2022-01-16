@@ -38,7 +38,7 @@ export default class TelaCadastro extends Component {
             senha: this.#senha
         };
 
-        axios.post(`http://192.168.0.102:3200/cadastro`, informacoes,
+        axios.post(`http://192.168.0.104:3200/cadastro`, informacoes,
             { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
             .then(res => {
                 console.log(res);
@@ -119,7 +119,7 @@ export default class TelaCadastro extends Component {
 
                                 <div className="d-flex justify-content-between">
                                     <button type="submit" className="btn btn-primary" onChange={this.handleChange}>Cadastrar</button>
-                                    <Link to="/paginaLogin" className="btn btn-primary">Possui Conta</Link>
+                                    <Link to="/login" className="btn btn-primary">Possui Conta</Link>
                                 </div>
                             </form>
                         </section>

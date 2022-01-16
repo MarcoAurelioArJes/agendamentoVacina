@@ -1,5 +1,5 @@
 import { React, Component } from 'react';
-import axios from 'axios';
+import {LoginUrl} from '../../components/ConsumoAPI';
 
 class TelaLogar extends Component {
     #email;
@@ -7,32 +7,25 @@ class TelaLogar extends Component {
     constructor(props) {
         super(props);
         this.state = {}
-
-        // this.msg = "";
     }
 
     handleChange = event => {
         this.setState({
             email: event.target.value, senha: event.target.value,
-            // msg: this.msg
         });
     }
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
+        e.preventDefault();
 
         const informacoes = {
             email: this.#email,
             senha: this.#senha
         };
 
-        axios.post(`http://192.168.0.102:3200/login`, informacoes,
-            { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
-            // .then(res => {
-            //     this.msg = res.data.msg;
-            // })
+        const url = `http://192.168.0.103:3200/users/login`;
 
-        console.log(informacoes);
-        // console.log(this.msg);
+        LoginUrl(url, informacoes);
     };
 
     _handleEmail(e) {

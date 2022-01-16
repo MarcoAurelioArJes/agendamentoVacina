@@ -6,6 +6,7 @@ import TelaCadastro from './pages/TelaCadastro';
 import TelaLogar from './pages/TelaLogar';
 
 class Routes extends Component {
+
     render() { 
         return (
             <BrowserRouter>
@@ -14,7 +15,7 @@ class Routes extends Component {
                         <TelaCadastro />
                     </Route>
 
-                    <Route path="/agendamento">
+                    <Route path='/agendamento'>
                         <Agendamento />
                     </Route>
 
